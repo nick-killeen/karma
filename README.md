@@ -1,2 +1,2 @@
 # karma
-What goes around comes around, probably.
+What goes around comes around again, probably.
