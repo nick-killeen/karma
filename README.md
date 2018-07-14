@@ -32,12 +32,20 @@ Now, this problem has extended its arms into not merely vocabulary matters, thou
 In some cases, it's all well and good to spew out piles of text into an abyss. To be able to write something under the if only hypothetical restraint that "someday, I may look back upon this, and I must absolutely understand at that time all that I do now" is surely an important step in learning. But in the cases where I want what I write down to come back around to me at some point, this is where I hope to use this project.
 
 ## Tools and Analysis
-In the /tools/ folder, the MATLAB script simulateIndexGenerator.m can be used to generate images 
+In the /tools/ folder, the MATLAB script simulateIndexGenerator.m can be used to generate images such as, 
+
+for T(x) := x^2
+
+![fat-tailed](./images/fat-tailed.svg)
+
+for T(x) := ((1/pi) \* asin(2\*x^2 - 1) + 1/2)^b
+
+![thin-tailed](./images/thin-tailed.svg)
 
 TODO list:
 - [X] Tick off the first item of this list.
 - [ ] Summarise *Motivation* section. ~~Particularly, the latter half of *In general*.~~
-- [ ] Insert MATLAB images, maybe some additional documentation about indexGenerator. Do this under *Tools*
+- [ ] Insert MATLAB images, maybe some additional documentation about indexGenerator. Do this under *Tools*. Add xlabel and ylabel?
 - [ ] Try to come up with a good description of what a *probabalistic cycle* is, and stick it at the top somewhere.
 - [ ] Use `h2xs -AX -n Karma.pm` to create a CPAN-standard tarball, and upload it.
     - This will require the complicitness of version number in both the tar, and in the gist.
