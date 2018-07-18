@@ -11,7 +11,7 @@
 # added back to the end of the queue so long as its lifetime is non-zero. As for
 # which act gets cycled, this is chosen with a random index generator, biased
 # towards the start of the queue. This bias makes it more likely that Acts which
-# which have not recently been cycled will be chosen next for cycling.
+# have not recently been cycled will be chosen next for cycling.
 #
 # It is possible to peek() at which act is next set to be cycled. Doing so
 # will cause this specific act to be "primed". This may incur the observer
