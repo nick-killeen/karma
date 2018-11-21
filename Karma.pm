@@ -131,7 +131,7 @@ package Karma {
 		for (keys %args) {
 			defined $self->{$_} or 
 				die "Unknown initialiser '$_' provided to Karma->new()";
-			Karma::validator($_ => $args{$_});
+			Karma::_validator($_ => $args{$_});
 
 			$self->{$_} = $args{$_};
 		}
@@ -183,7 +183,7 @@ package Karma {
 	# to have lifetime 0.
 	sub lifetime {
 		my ($self, $actId) = @_;
-		Karma::validator(actId => $actId);
+		Karma::_validator(actId => $actId);
 		
 		for (0..$#{$self->{cycle}}) {
 			if ($self->{cycle}->[$_] == $actId) {
@@ -281,7 +281,7 @@ package Karma {
 	# pushing duplicate actIds will result in a return code of 0.
 	sub push {
 		my ($self, $actId, $lifetime) = @_;
-		Karma::validator(actId => $actId, lifetime => $lifetime);
+		Karma::_validator(actId => $actId, lifetime => $lifetime);
 		
 		# Fail the push if we are disallowing duplicates, and it already exists.
 		return 0 if (!$self->{allowDuplicateActIds} and
@@ -309,7 +309,7 @@ package Karma {
 	# cycle.
 	sub remove {
 		my ($self, $actId) = @_;
-		Karma::validator(actId => $actId);
+		Karma::_validator(actId => $actId);
 		
 		# If the Act we are removing is the one that is primed, relax().
 		if (defined $self->{primed} and $actId == $self->{primed}) {
@@ -372,7 +372,7 @@ package Karma {
 	
 	# Die when functions are given arguments that don't follow these validation
 	# rules:
-	sub validator {
+	sub _validator {
 		my (%args) = @_;
 		
 		my %rules = (
