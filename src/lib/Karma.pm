@@ -1,14 +1,3 @@
-#package Karma;
-
-#use 5.026002;
-#use strict;
-#use warnings;
-
-#our @ISA = qw();
-
-our $VERSION = '0.01';
-
-
 # Karma/Karma.pm
 # Nicholas Killeen,
 # 12th July 2018.
@@ -39,6 +28,8 @@ use warnings;
 use strict;
 
 use Data::Dumper;
+
+our $VERSION = '0.01';
 
 package Karma {
 	sub new {
