@@ -1,0 +1,6 @@
+Revision history for Perl extension Karma.
+
+0.01  Thu Nov 22 22:31:10 2018
+	- original version; created by h2xs 1.23 with options
+		-AX --skip-exporter --use-new-tests -n Karma
+

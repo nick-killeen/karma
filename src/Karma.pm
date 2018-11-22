@@ -229,8 +229,8 @@ package Karma {
 		# Read saveState into the object.
 		my ($VAR1, $VAR2, $VAR3);
 		eval($saveState);
-		$self->{primed}   = $VAR1;
-		$self->{cycle}    = $VAR2;
+		$self->{primed}    = $VAR1;
+		$self->{cycle}     = $VAR2;
 		$self->{lifetimes} = $VAR3;
 		
 		return 1;

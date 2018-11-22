@@ -7,6 +7,7 @@ use warnings;
 use strict;
 
 use Try::Tiny;
+use Data::Dumper;
 
 use Karma;
 
