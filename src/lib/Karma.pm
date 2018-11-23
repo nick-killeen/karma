@@ -1,6 +1,3 @@
-# Karma/Karma.pm
-# Nicholas Killeen,
-# 12th July 2018.
 # A collection of Acts is a probabilistic cycle.
 #
 #

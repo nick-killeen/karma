@@ -1,6 +1,3 @@
-# Karma/testKarma.pl
-# Nicholas Killeen,
-# 12th July 2018.
 # Autotests for the Karma project.
 
 use warnings;
