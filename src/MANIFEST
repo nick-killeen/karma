@@ -1,6 +1,5 @@
 Changes
 Makefile.PL
 MANIFEST
-README
 t/Karma.t
 lib/Karma.pm
