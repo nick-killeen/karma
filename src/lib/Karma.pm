@@ -1,4 +1,4 @@
-# A collection of Acts is a probabilistic cycle.
+# A collection of Acts in a probabilistic cycle.
 #
 #
 # Acts are stored in a queue, in the order in which they have been added
