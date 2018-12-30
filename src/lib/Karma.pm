@@ -26,9 +26,9 @@ use strict;
 
 use Data::Dumper;
 
-our $VERSION = '0.01';
-
 package Karma {
+	our $VERSION = '0.01';
+	
 	sub new {
 		my ($class, %args) = @_;
 		
