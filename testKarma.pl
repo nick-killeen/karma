@@ -397,6 +397,25 @@ sub testKarma {
 		}
 	}
 	
+	# Test editLifetime.
+	if (1) {
+		my $k1 = Karma->new(
+			allowDuplicateActIds => 0,
+			indexGenerator       => sub {0},
+			recycle              => "fair"
+		);
+		
+		$k1->push("0", 1);
+		($k1->lifetime("0") == 1) or die;
+		$k1->editLifetime("0", 5) or die;
+		($k1->lifetime("0") == 5) or die;
+		
+		!(try {$k1->editLifetime("0", "invalid_ttl"); 1;}) or die;
+		!(try {$k1->editLifetime("0", 0);             1;}) or die;
+		
+		!($k1->editLifetime("1", 5)) or die;
+	}
+	
 	print "All tests passed!";
 }
 
