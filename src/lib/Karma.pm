@@ -144,6 +144,50 @@ package Karma {
 		
 		return bless $self, $class;
 	}
+	
+
+	# Tests the validity of other function arguments, dying when rules are not
+	# followed.
+	sub _validator {
+		my (%args) = @_;
+		
+		my %rules = (
+			actId => sub {
+				$_[0] =~ /^\d+$/;
+			},
+			
+			lifetime => sub {
+				$_[0] =~ /^\d+$/ and $_[0] > 0;
+			},
+			
+			# We can only confirm the validity of the indexes as we generate
+			# them, so their validity is given the benefit of the doubt at this
+			# point.
+			indexGenerator => sub {
+				1;
+			},
+			
+			allowDuplicateActIds => sub {
+				$_[0] =~ /^\d+$/ && ($_[0] == 0 || $_[0] == 1);
+			},
+			
+			recycle => sub {
+				$_[0] eq "eternal" or $_[0] eq "fair" or $_[0] eq "destruct";
+			},
+		);
+		
+		for (keys %args) {
+			defined $rules{$_} or
+				die "No rule to check the validity of argument '$_' => '" .
+				($args{$_} // "undef") . "' defined in validator";
+			defined $args{$_} or
+				die "Parameter '$_' cannot be set to 'undef'";
+			$rules{$_}($args{$_}) or
+				die "'$args{$_}' is not a valid value of parameter '$_'";
+		}
+		
+		return 1;
+	}
 
 	# Cycle the currently primed Act; remove, decrease lifetime, and re-add. If
 	# no acts are primed, prime one first.
@@ -368,50 +412,6 @@ package Karma {
 			return $saveState;
 		}
  	}
-	
-	# Die when functions are given arguments that don't follow these validation
-	# rules:
-	sub _validator {
-		my (%args) = @_;
-		
-		my %rules = (
-			actId => sub {
-				$_[0] =~ /^\d+$/;
-			},
-			
-			lifetime => sub {
-				$_[0] =~ /^\d+$/ and $_[0] > 0;
-			},
-			
-			# We can only confirm the validity of the indexes as we generate
-			# them, so their validity is given the benefit of the doubt at this
-			# point.
-			indexGenerator => sub {
-				1;
-			},
-			
-			allowDuplicateActIds => sub {
-				$_[0] =~ /^\d+$/ && ($_[0] == 0 || $_[0] == 1);
-			},
-			
-			recycle => sub {
-				$_[0] eq "eternal" or $_[0] eq "fair" or $_[0] eq "destruct";
-			},
-		);
-		
-		for (keys %args) {
-			defined $rules{$_} or
-				die "No rule to check the validity of argument '$_' => '" .
-				($args{$_} // "undef") . "' defined in validator";
-			defined $args{$_} or
-				die "Parameter '$_' cannot be set to 'undef'";
-			$rules{$_}($args{$_}) or
-				die "'$args{$_}' is not a valid value of parameter '$_'";
-		}
-		
-		return 1;
-	}
-	
 };
 
 1;
