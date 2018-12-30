@@ -16,7 +16,7 @@ sub testKarma {
 			allowDuplicateActIds => 0,
 			indexGenerator       => sub {0},
 			recycle              => "fair"
-			);
+		);
 		
 		my $k1_save1 = $k1->save();
 		for (0..1) {
