@@ -1,4 +1,4 @@
-# A collection of Acts is a probabilistic cycle.
+# A collection of Acts in a probabilistic cycle.
 #
 #
 # Acts are stored in a queue, in the order in which they have been added
@@ -85,14 +85,14 @@ package Karma {
 			# to its simplicity and nice shape (dense around 0).
 			#
 			# With this G, the probability that we prime an index in the:
-			# - top 10-percentile of least-recently used indexes is 30.62%;
+			# - top 10-percentile of least-recently used indexes is 31.62%;
 			# - top 50-percentile ''                                70.71%;
 			# - top 90-percentile ''                                94.87%.
 			#
 			# >> A thinner tailed G(U, n)
 			# If after something with a thinner tail probability, consider using
 			#
-			#             T(x):= ((1/pi) * asin(2*x^2 - 1) + 1/2)^b
+			#             T(x):= ((1/pi) * asin(2*x^a - 1) + 1/2)^b
 			#
 			# with a = 5, b = 0.8. The probability that we prime an index in
 			# the:
