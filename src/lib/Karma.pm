@@ -27,7 +27,7 @@ use strict;
 use Data::Dumper;
 
 package Karma {
-	our $VERSION = '0.01';
+	our $VERSION = '0.02';
 	
 	sub new {
 		my ($class, %args) = @_;
@@ -213,6 +213,21 @@ package Karma {
 		} 
 		
 		return $actIdToCycle;
+	}
+	
+	# Change lifetime by actId. If actId is not in the cycle (nothing to edit),
+	# return 0.
+	sub editLifetime {
+		my ($self, $actId, $lifetime) = @_;
+		Karma::_validator(actId => $actId, lifetime => $lifetime);
+		
+		for (0..$#{$self->{cycle}}) {
+			if ($self->{cycle}->[$_] == $actId) {
+				$self->{lifetimes}->[$_] = $lifetime;
+				return 1;
+			}
+		}
+		return 0;
 	}
 	
 	# Number of elements in the cycle.
