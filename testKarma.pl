@@ -6,7 +6,7 @@ use strict;
 use Try::Tiny;
 use Data::Dumper;
 
-use Karma 0.03;
+use Karma 0.04;
 
 sub testKarma {
 	# Testing various default behaviour with a simple indexGenerator.
