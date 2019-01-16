@@ -27,7 +27,7 @@ use strict;
 use Data::Dumper;
 
 package Karma {
-	our $VERSION = "0.03";
+	our $VERSION = '0.02';
 	
 	sub new {
 		my ($class, %args) = @_;
@@ -414,7 +414,6 @@ package Karma {
 			if (defined $args{fh}) {
 				$args{fh}->print($saveState);
 			} elsif (defined $args{path}) {
-				mkdir $args{path};
 				open my $fh, ">", $args{path} or
 					die "Failed to open file '$args{path}'";
 				print $fh $saveState;
