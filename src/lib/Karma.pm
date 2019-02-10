@@ -68,19 +68,17 @@ package Karma {
 			# probability G will prime an act in the top 100-p-percent of least-
 			# recently cycled Acts as:
 			#
-			#                    P(G(U, n) <= np) = T^-1(p)                  (2)
+			#                   P(G(U, n) <= np) = T^-1(p).                  (2)
 			#
-			# Properly accounting for the discretisation that is being made, we
-			# have:
+			# Properly accounting for the troublesome discretisation, we have:
 			#
-			#           T^-1(p) <= P(G(U, n) <= np) <= T^-1(p + 1/n)         (3)
+			#          T^-1(p) <= P(G(U, n) <= np) <= T^-1(p + 1/n),         (3)
 			#
-			# Note that if p is carefully chosen to be one of 0, 1/n, 2/n, ...,
-			# (n-1)/n, then P(G(U, n) <= np) will sit at its lower bound, as in
-			# (2). 
+			# But since it is not practical to know n, equation (2) suffices for
+			# analysis.
 			#
 			# >> The default G(U, n):
-			# By default, our index generator is set to be of the form (2) with
+			# By default, our index generator is set to be of the form (1) with
 			# with T(x) := x^2. This is chosen as the default transformation due
 			# to its simplicity and nice shape (dense around 0).
 			#
