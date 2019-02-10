@@ -74,8 +74,8 @@ package Karma {
 			#
 			#          T^-1(p) <= P(G(U, n) <= np) <= T^-1(p + 1/n),         (3)
 			#
-			# But since it is not practical to know n, equation (2) suffices for
-			# analysis.
+			# But since it is not practical to know n, the asymptotically
+			# correct equation (2) suffices for analysis.
 			#
 			# >> The default G(U, n):
 			# By default, our index generator is set to be of the form (1) with
