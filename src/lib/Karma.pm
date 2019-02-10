@@ -68,15 +68,15 @@ package Karma {
 			# probability G will prime an act in the top 100-p-percent of least-
 			# recently cycled Acts as:
 			#
-			#                     P(G(U, n) <= p) = T^-1(p)                  (2)
+			#                    P(G(U, n) <= np) = T^-1(p)                  (2)
 			#
-			# Properly accounting for the troublesome discretisation that is
-			# being made, we have:
+			# Properly accounting for the discretisation that is being made, we
+			# have:
 			#
-			#            T^-1(p) <= P(G(U, n) <= p) <= T^-1(p + 1/n)         (3)
+			#           T^-1(p) <= P(G(U, n) <= np) <= T^-1(p + 1/n)         (3)
 			#
 			# Note that if p is carefully chosen to be one of 0, 1/n, 2/n, ...,
-			# (n-1)/n, then P(G(U, n) <= p) will sit at its lower bound, as in
+			# (n-1)/n, then P(G(U, n) <= np) will sit at its lower bound, as in
 			# (2). 
 			#
 			# >> The default G(U, n):
@@ -92,7 +92,7 @@ package Karma {
 			# >> A thinner tailed G(U, n)
 			# If after something with a thinner tail probability, consider using
 			#
-			#             T(x):= ((1/pi) * asin(2*x^a - 1) + 1/2)^b
+			#             T(x) := ((1/pi) * asin(2*x^a - 1) + 1/2)^b
 			#
 			# with a = 5, b = 0.8. The probability that we prime an index in
 			# the:
