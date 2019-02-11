@@ -1,14 +1,18 @@
 # Karma
 Karma stores a list of IDs in a cycle, fulfilling get requests by randomly selecting an ID biasedly in favour of those which have least-recently been cycled. This yields that "things which haven't gone around recently are more likely to come around". The Karma project aims to provide an interface that allows this property to be exploited.
 
-## Including Karma in your Perl project
-The source file is available at [src/lib/Karma.pm](./src/lib/Karma.pm?ts=4), and it may be more convenient to copy this file locally rather than installing via CPAN. CPAN installation can be done by downloading src/ and running
+## Installation
+### Via CPAN
+CPAN installation can be done simply by downloading the [src/](./src) folder and running
 ```
 perl Makefile.PL
 make
 make test
 make install
 ```
+Done!
+### Copying the source file
+If something goes wrong with the CPAN installation, or you want to copy the source locally instead, it suffices to download [src/lib/Karma.pm](./src/lib/Karma.pm?ts=4), and copy it to a path that Perl knows about. In which case, it is recommended that you run the basic [autotests](./testKarma.pl?ts=4) manually.
 
 ## Motivation
 Years ago, I diligently maintained a list of words and meanings in a plaintext file. As I added more and more words to the top of the file, naturally, older words fell out of the short distance haphazard scrolling would be willing to take me. Still, I would add words, for to recognise their significance and write them down *somewhere* would be an act of learning, if only minor. Each addition would bring a slight feeling of perturbation, in turn inciting a few seconds of higher order thought on how I could develop a system to allow efficient revision. The sum of seconds turned to minutes, and minutes to larger denominations of minutes, until I had divined a genius schematic for a system that would allow me to formally revise words.
